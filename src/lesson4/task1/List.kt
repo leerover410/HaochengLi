@@ -189,7 +189,14 @@ fun polynom(p: List<Int>, x: Int): Int {
  *
  * Обратите внимание, что данная функция должна изменять содержание списка list, а не его копии.
  */
-fun accumulate(list: MutableList<Int>): MutableList<Int> = TODO()
+fun accumulate(list: MutableList<Int>): MutableList<Int> {
+    var a: Int
+    for (i in 1 until list.size) {
+        a = list[i - 1]
+        list[i] += a
+    }
+    return list
+}
 
 /**
  * Средняя
@@ -238,7 +245,20 @@ fun convertToString(n: Int, base: Int): String = TODO()
  * из системы счисления с основанием base в десятичную.
  * Например: digits = (1, 3, 12), base = 14 -> 250
  */
-fun decimal(digits: List<Int>, base: Int): Int = TODO()
+fun decimal(digits: List<Int>, base: Int): Int {
+    var a = 0
+    var b = 1
+    var c = digits.size
+    while (c > 1) {
+        b *= base
+        c--
+    }
+    for (i in 0 until digits.size) {
+        a += digits[i] * b
+        b /= base
+    }
+    return a
+}
 
 /**
  * Сложная
